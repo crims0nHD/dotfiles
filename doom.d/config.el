@@ -24,7 +24,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-dracula-theme)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -52,13 +52,10 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
-(evil-set-initial-state 'vterm-mode 'emacs)
 
 (load! "./arduino-mode.el")
 
-;;(setq dw/is-termux nil) ;; Implement something that detects termux
-;;(unless dw/is-termux
-;;  (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
-;;  (add-to-list 'default-frame-alist '(alpha . (90 . 90)))
-;;  (set-frame-parameter (selected-frame) 'fullscreen 'maximized)
-;;  (add-to-list 'default-frame-alist '(fullscreen . maximized)))
+(setq dw/is-termux nil) ;; Implement something that detects termux
+(unless dw/is-termux
+  (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
+  (add-to-list 'default-frame-alist '(alpha . (90 . 90))))
