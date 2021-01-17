@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/davidh/.config/awesome/wp/default.jpg"
+let background = "#00001B"
+let foreground = "#d197e2"
+let cursor     = "#d197e2"
+
+" Colors
+let color0  = "#00001B"
+let color1  = "#64049F"
+let color2  = "#7A4DBB"
+let color3  = "#5E22CF"
+let color4  = "#544EE6"
+let color5  = "#9C05A3"
+let color6  = "#DC0FA5"
+let color7  = "#d197e2"
+let color8  = "#92699e"
+let color9  = "#64049F"
+let color10 = "#7A4DBB"
+let color11 = "#5E22CF"
+let color12 = "#544EE6"
+let color13 = "#9C05A3"
+let color14 = "#DC0FA5"
+let color15 = "#d197e2"

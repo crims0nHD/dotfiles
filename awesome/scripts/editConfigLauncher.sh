@@ -1,5 +1,5 @@
 #!/bin/bash
-selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim config" | rofi -dmenu -p "Edit config")
+selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim config" | rofi -dmenu -p "Edit config: ")
 sel_path=""
 
 if [[ "${selected}" == "AwesomeWM config" ]]
