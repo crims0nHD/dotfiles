@@ -6,3 +6,4 @@ ln -s $PWD/kitty ~/.config/kitty
 ln -s $PWD/nvim ~/.config/nvim
 ln -s $PWD/picom ~/.config/picom
 ln -s $PWD/rofi ~/.config/rofi
+ln -s $PWD/doom.d ~/.doom.d
