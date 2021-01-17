@@ -45,7 +45,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/themes/david/theme.lua")
+beautiful.init(gears.filesystem:get_configuration_dir() .. "themes/david/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"
@@ -54,7 +54,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Rofi Scripts
 rofi_run_cmd = "rofi -modi drun -show drun"
-rofi_edit_cmd = "~/.config/awesome/scripts/editConfigLauncher.sh"
+rofi_edit_cmd = gears.filesystem:get_configuration_dir() .. "scripts/editConfigLauncher.sh"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -580,4 +580,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- Autostart Applications
 -- ---------------------------
-awful.util.spawn("~/.config/awesome/scripts/autostart.sh")
+awful.util.spawn(gears.filesystem:get_configuration_dir() .. "scripts/autostart.sh")
