@@ -55,6 +55,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- Rofi Scripts
 rofi_run_cmd = "rofi -modi drun -show drun"
 rofi_edit_cmd = gears.filesystem:get_configuration_dir() .. "scripts/editConfigLauncher.sh"
+rofi_window_switch_cmd = "rofi - modi window -show window"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -341,7 +342,10 @@ globalkeys = gears.table.join(
               {description = "show rofi application launcher", group = "rofi"}),
 
     awful.key({ modkey }, "e", function() awful.spawn(rofi_edit_cmd) end,
-              {description = "show rofi config editor launcher", group = "rofi"})
+              {description = "show rofi config editor launcher", group = "rofi"}),
+
+    awful.key({ modkey }, "w", function() awful.spawn(rofi_window_switch_cmd) end,
+              {description = "show rofi window switcher", group = "rofi"})
 )
 
 clientkeys = gears.table.join(
@@ -581,3 +585,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Autostart Applications
 -- ---------------------------
 awful.util.spawn(gears.filesystem:get_configuration_dir() .. "scripts/autostart.sh")
+
+awful.spawn.easy_async_with_shell("pgrep picom",
+	function (stdout, stderr, reason, exit_code)
+		if(pcall(tonumber, stdout)) then
+			awful.util.spawn("picom")
+		end
+	end)
