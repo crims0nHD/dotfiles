@@ -4,7 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
-   '("c131f7762ab71434ce9515e4c331f2e09a06482c73fe2b722f0d7499a44da71c" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" default))
+   '("bd82c92996136fdacbb4ae672785506b8d1d1d511df90a502674a51808ecc89f" "c131f7762ab71434ce9515e4c331f2e09a06482c73fe2b722f0d7499a44da71c" "e6ff132edb1bfa0645e2ba032c44ce94a3bd3c15e3929cdf6c049802cf059a2a" default))
  '(package-selected-packages '(exwm company-arduino arduino-cli-mode org-plus-contrib)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
