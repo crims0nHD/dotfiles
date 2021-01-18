@@ -56,6 +56,7 @@ editor_cmd = terminal .. " -e " .. editor
 rofi_run_cmd = "rofi -modi drun -show drun"
 rofi_edit_cmd = gears.filesystem:get_configuration_dir() .. "scripts/editConfigLauncher.sh"
 rofi_window_switch_cmd = "rofi - modi window -show window"
+rofi_vm_connect_cmd = gears.filesystem:get_configuration_dir() .. "scripts/connectToVirtualMachine.sh"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -326,6 +327,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
+    awful.key({ modkey },            "c",     function () awful.util.spawn("chromium") end,
+              {description = "launch chromium", group = "launcher"}),
+
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
@@ -345,7 +349,10 @@ globalkeys = gears.table.join(
               {description = "show rofi config editor launcher", group = "rofi"}),
 
     awful.key({ modkey }, "w", function() awful.spawn(rofi_window_switch_cmd) end,
-              {description = "show rofi window switcher", group = "rofi"})
+              {description = "show rofi window switcher", group = "rofi"}),
+
+    awful.key({ modkey }, "v", function() awful.spawn(rofi_vm_connect_cmd) end,
+              {description = "show rofi vm connector", group = "rofi"})
 )
 
 clientkeys = gears.table.join(
@@ -510,6 +517,11 @@ awful.rules.rules = {
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
+    },
+
+    -- Weird chromium fix
+    { rule = { class = "Chromium" },
+	properties = { maximized = false, maximized_vertical = false, maximized_horizontal = false, }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
