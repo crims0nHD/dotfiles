@@ -57,6 +57,10 @@ rofi_run_cmd = "rofi -modi drun -show drun"
 rofi_edit_cmd = gears.filesystem:get_configuration_dir() .. "scripts/editConfigLauncher.sh"
 rofi_window_switch_cmd = "rofi - modi window -show window"
 rofi_vm_connect_cmd = gears.filesystem:get_configuration_dir() .. "scripts/connectToVirtualMachine.sh"
+rofi_shutdown_cmd = ""
+
+-- Other Scripts
+take_screenshot_cmd = "sh -c" .. gears.filesystem:get_configuration_dir() .. "scripts/takeScreenshot.sh"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -293,10 +297,15 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
+
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
+
+    awful.key({ modkey, "Control"   }, "q", awful.spawn(rofi_shutdown_cmd),
+              {description = "shutdown compooter", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               {description = "increase master width factor", group = "layout"}),
@@ -329,6 +338,9 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey },            "c",     function () awful.util.spawn("chromium") end,
               {description = "launch chromium", group = "launcher"}),
+
+    awful.key({ modkey, "Shift" },   "s",     function () awful.util.spawn(take_screenshot_cmd, function () end) end,
+              {description = "take screenshot and copy to clipboard", group = "screenshot"}),
 
     awful.key({ modkey }, "x",
               function ()
