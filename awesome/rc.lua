@@ -57,7 +57,8 @@ rofi_run_cmd = "rofi -modi drun -show drun"
 rofi_edit_cmd = gears.filesystem:get_configuration_dir() .. "scripts/editConfigLauncher.sh"
 rofi_window_switch_cmd = "rofi - modi window -show window"
 rofi_vm_connect_cmd = gears.filesystem:get_configuration_dir() .. "scripts/connectToVirtualMachine.sh"
-rofi_shutdown_cmd = ""
+rofi_shutdown_cmd = gears.filesystem:get_configuration_dir() .. "scripts/shutdownMenu.sh"
+
 
 -- Other Scripts
 take_screenshot_cmd = "sh -c" .. gears.filesystem:get_configuration_dir() .. "scripts/takeScreenshot.sh"
@@ -304,7 +305,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
-    awful.key({ modkey, "Control"   }, "q", awful.spawn(rofi_shutdown_cmd),
+    awful.key({ modkey, "Control"   }, "q", function () awful.spawn(rofi_shutdown_cmd) end,
               {description = "shutdown compooter", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
