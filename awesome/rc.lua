@@ -62,6 +62,7 @@ rofi_shutdown_cmd = gears.filesystem:get_configuration_dir() .. "scripts/shutdow
 
 -- Other Scripts
 take_screenshot_cmd = "sh -c" .. gears.filesystem:get_configuration_dir() .. "scripts/takeScreenshot.sh"
+start_emacsclient_cmd = "emacsclient -c -a emacs";
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -340,6 +341,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "c",     function () awful.util.spawn("chromium") end,
               {description = "launch chromium", group = "launcher"}),
 
+    awful.key({ modkey },            "e",     function () awful.util.spawn(start_emacsclient_cmd) end,
+              {description = "launch emacs as client", group = "launcher"}),
+
     awful.key({ modkey, "Shift" },   "s",     function () awful.util.spawn(take_screenshot_cmd, function () end) end,
               {description = "take screenshot and copy to clipboard", group = "screenshot"}),
 
@@ -358,7 +362,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey }, "p", function() awful.spawn(rofi_run_cmd) end,
               {description = "show rofi application launcher", group = "rofi"}),
 
-    awful.key({ modkey }, "e", function() awful.spawn(rofi_edit_cmd) end,
+    awful.key({ modkey, "Control" }, "e", function() awful.spawn(rofi_edit_cmd) end,
               {description = "show rofi config editor launcher", group = "rofi"}),
 
     awful.key({ modkey }, "w", function() awful.spawn(rofi_window_switch_cmd) end,

@@ -1,5 +1,5 @@
 #!/bin/bash
-selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim config\nAutostart script" | rofi -dmenu -p "Edit config: ")
+selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim config\nAutostart script\nShutdown script" | rofi -dmenu -p "Edit config: ")
 sel_path=""
 
 if [[ "${selected}" == "AwesomeWM config" ]]
@@ -25,6 +25,10 @@ then
 elif [[ "${selected}" == "Autostart script" ]]
 then
 	sel_path="~/.config/awesome/scripts/autostart.sh"
+
+elif [[ "${selected}" == "Shutdown script" ]]
+then
+	sel_path="~/.config/awesome/scripts/shutdownMenu.sh"
 fi
 
 if [[ ! -z $sel_path ]]

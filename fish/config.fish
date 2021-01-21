@@ -5,3 +5,6 @@ function fish_greeting
 	cat ~/.cache/wal/sequences
 end
 
+function evil
+	emacsclient -t
+end
