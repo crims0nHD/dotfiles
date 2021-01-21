@@ -5,6 +5,8 @@ function fish_greeting
 	cat ~/.cache/wal/sequences
 end
 
-function evil
-	emacsclient -t
+if [ TERM="xterm-kitty" ]
+	function ssh
+	    kitty kitten ssh $argv
+	end
 end
