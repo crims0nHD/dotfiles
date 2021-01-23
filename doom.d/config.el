@@ -53,6 +53,10 @@
 ;; they are implemented.
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
 
+(map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
+
+(map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
+
 (load! "./arduino-mode.el")
 
 (setq dw/is-termux nil) ;; Implement something that detects termux
