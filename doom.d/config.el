@@ -51,14 +51,21 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+;; Movement
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
 
+;; Git / Magit
 (map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
+(map! :leader :desc "Push to upstream branch" "g p" #'magit-push-current-to-upstream)
 
+;; Color
 (map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
 
+;; Arduino 😄
 (load! "./arduino-mode.el")
 
+;; Background opacity
 (setq dw/is-termux nil) ;; Implement something that detects termux
 (unless dw/is-termux
   (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
