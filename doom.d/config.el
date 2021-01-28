@@ -70,3 +70,10 @@
 (unless dw/is-termux
   (set-frame-parameter (selected-frame) 'alpha '(90 . 90))
   (add-to-list 'default-frame-alist '(alpha . (90 . 90))))
+
+;;; Don't whine if there is a terminal open.
+(defun set-no-process-query-on-exit ()
+(let ((proc (get-buffer-process (current-buffer))))
+(when (processp proc)
+(set-process-query-on-exit-flag proc nil))))
+(add-hook 'term-exec-hook 'set-no-process-query-on-exit)

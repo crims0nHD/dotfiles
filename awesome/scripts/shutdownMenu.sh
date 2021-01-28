@@ -8,7 +8,7 @@ then
 
 elif [[ $selected == "Restart" ]]
 then
-	reboot 0
+	doas reboot 0
 
 elif [[ $selected == "Chill" ]]
 then
