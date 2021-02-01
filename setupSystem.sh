@@ -17,6 +17,7 @@ elif [ ! -z $(command -v apt) ]
 then
 	apt update
 	apt upgrade
-	apt install awesome rofi kitty fish neovim picom emacs fd-find ripgrep
+	apt install awesome rofi kitty fish neovim emacs fd-find ripgrep
+	apt install picom
 fi
 

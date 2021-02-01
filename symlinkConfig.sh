@@ -1,6 +1,9 @@
 #!/bin/bash
 
-mkdir ~/.cache
+if [[! -d "~/.cache"]]
+then
+    mkdir ~/.cache
+fi
 
 ln -s $PWD/awesome ~/.config/awesome
 ln -s $PWD/fish ~/.config/fish

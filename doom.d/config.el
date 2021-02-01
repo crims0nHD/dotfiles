@@ -58,6 +58,22 @@
 ;; Git / Magit
 (map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
 (map! :leader :desc "Push to upstream branch" "g p" #'magit-push-current-to-upstream)
+(load! "./git-identity.el")
+(use-package! git-identity
+  :ensure t
+  :after magit
+  :config
+  (git-identity-magit-mode 1)
+  ;; Bind I to git-identity-info in magit-status
+  (define-key magit-status-mode-map (kbd "I") 'git-identity-info)
+  :custom
+  ;; Warn if the global identity setting violates your policy
+  (git-identity-verify t)
+  ;; The default user name
+  (git-identity-default-username "David Hintringer"))
+(setq git-identity-list '(("gamedavid.dh@gmail.com"
+                          :domains ("github.com")
+                          )))
 
 ;; Color
 (map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
