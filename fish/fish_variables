@@ -1,6 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export PYENV_ROOT:/home/davidh/\x2epyenv
+SETUVAR --export PYENV_ROOT:/home/david/\x2epyenv
 SETUVAR __fish_initialized:3100
 SETUVAR chain_links:chain\x2elinks\x2eroot\x1echain\x2elinks\x2ejobs\x1echain\x2elinks\x2epwd\x1echain\x2elinks\x2evcs_branch\x1echain\x2elinks\x2evcs_dirty\x1echain\x2elinks\x2evcs_stashed
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
