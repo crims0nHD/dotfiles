@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [[! -d "~/.cache"]]
+if [[ ! -d "~/.cache" ]]
 then
     mkdir ~/.cache
 fi

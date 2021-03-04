@@ -10,7 +10,7 @@ fi
 if [ ! -z $(command -v pacman) ]
 then
 	pacman -Syu
-	pacman -S awesome rofi kitty fish neovim picom emacs fd ripgrep git
+	pacman -S awesome rofi kitty fish neovim picom emacs fd ripgrep git wget
 
 # Debian based distros
 elif [ ! -z $(command -v apt) ]
