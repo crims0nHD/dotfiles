@@ -10,7 +10,14 @@ fi
 if [ ! -z $(command -v pacman) ]
 then
 	pacman -Syu
-	pacman -S awesome rofi kitty fish neovim picom emacs fd ripgrep git wget
+	pacman -S base-devel awesome rofi kitty fish neovim picom emacs fd ripgrep git wget
+	imagemagick numlockx
+
+	#install AUR helper
+	mkdir -p /tmp/dotfiles/setup/paru
+	git clone https://aur.archlinux.org/paru.git /tmp/dotfiles/setup/paru
+	cd /tmp/dotfiles/setup/paru
+	#makepkg -si
 
 # Debian based distros
 elif [ ! -z $(command -v apt) ]
