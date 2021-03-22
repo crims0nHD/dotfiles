@@ -540,7 +540,7 @@ awful.rules.rules = {
 
     -- Weird chromium fix
     { rule = { class = "Chromium" },
-	properties = { maximized = false, maximized_vertical = false, maximized_horizontal = false, }
+	properties = { floating = false, maximized = false, maximized_vertical = false, maximized_horizontal = false, }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
