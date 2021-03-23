@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "save.h"
+
 const char *choices[] = {
     "Hello this is tech support",
     "Koniciwa",

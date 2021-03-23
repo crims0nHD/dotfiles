@@ -3,14 +3,19 @@ OBJDIR = ./obj
 BINDIR = ./bin
 
 LIBS = -lncurses -lmenu
+CFLAGS = -Wall -g
+
+SRCS=$(wildcard $(SRCDIR)/*.c)
+OBJS=$(patsubst %.c, %.o, $(patsubst $(SRCDIR)/%, $(OBJDIR)/%, $(SRCS)))
 
 build: linkapp
 
-linkapp: main.o
-	gcc -o $(BINDIR)/linkapp $(OBJDIR)/main.o $(LIBS) 
+linkapp: $(OBJS)
+	@echo $(OBJS)
+	gcc $(CFLAGS) -o $(BINDIR)/linkapp $(OBJS) $(LIBS) 
 
-main.o:
-	gcc -c -o $(OBJDIR)/main.o $(SRCDIR)/main.c
+obj/%.o: src/%.c
+	gcc $(CFLAGS) -c $< -o $@
 
 clean:
 	rm $(OBJDIR)/*
