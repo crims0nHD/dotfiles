@@ -77,6 +77,7 @@
 
 ;; Color
 (map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
+(map! :leader :desc "Toggle color preview" "t c" #'rainbow-mode)
 
 ;; Arduino 😄
 (load! "./arduino-mode.el")
