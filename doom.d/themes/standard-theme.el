@@ -7,6 +7,7 @@
      (((class color) (min-colors #xFFFFFF)))
 
      (standard-black "black")
+     (standard-darker-grey "grey3")
      (standard-dark-grey "DimGrey")
      (standard-light-grey "gainsboro")
      (standard-white "white")
@@ -34,9 +35,9 @@
     (
      (default                           (:foreground standard-light-grey :background standard-black))
      (cursor                            (:background standard-light-red))
-     (range                             (:background standard-red))
+     (region                             (:background standard-red))
 
-     (mode-line                         (:background standard-green))
+     (mode-line                         (:background standard-green :foreground standard-black))
      (mode-line-inactive                (:background standard-blue))
 
      (font-lock-constant-face           (:foreground standard-light-purple))
@@ -48,7 +49,7 @@
      (font-lock-function-name-face      (:foreground standard-green))
      (font-lock-type-face               (:foreground standard-light-cyan))
 
-     (hl-line                           (:background ))
+     (hl-line                           (:background standard-darker-grey))
 
      )
  )
