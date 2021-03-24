@@ -89,46 +89,6 @@
 (load! "./arduino-mode.el")
 
 ;; Background opacity
-;; Config
-(setq opacity-active 90)
-(setq opacity-inactive 90)
-(setq opacity-on-startup t)
-;; Code
-(defun set-opacity (active inactive)
-  (interactive)
-  (unless (integerp active)
-    (error "argument active: wrong type")
-    )
-  (unless (integerp inactive)
-    (error "argument inactive: wrong type")
-    )
-  (set-frame-parameter (selected-frame) 'alpha (cons active inactive))
-  (add-to-list 'default-frame-alist (cons 'alpha (cons active inactive)))
-  )
-
-(setq dw/is-termux nil) ;; Implement something that detects termux
-(setq opacity-is-enabled nil) ;; Disabled by default
-(defun toggle-opacity ()
-  (interactive)
-  (unless dw/is-termux
-    (if opacity-is-enabled
-	(progn ;; true (not nil)
-          (set-opacity 100 100)
-	  (setq opacity-is-enabled nil)
-	  (message "Frame opacity disabled")
-	  )
-	(progn ;; false (nil)
-          (set-opacity opacity-active opacity-inactive)
-	  (setq opacity-is-enabled t)
-	  (message "Frame opacity enabled")
-	  )
-	)
-    )
-  )
-(when opacity-on-startup
-  (set-opacity opacity-active opacity-inactive)
-  (setq opacity-is-enabled t)
-)
 (map! :leader :desc "Frame opacity" "t o" #'toggle-opacity)
 
 ;;; Don't whine if there is a terminal open.

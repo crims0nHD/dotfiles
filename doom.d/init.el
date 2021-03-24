@@ -71,6 +71,7 @@
        ibuffer         ; interactive buffer management
        undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
+       (opacity +onstartup)           ; HACK custom package for opacity control
 
        :term
        ;;eshell            ; the elisp shell that works everywhere
