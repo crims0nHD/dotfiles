@@ -24,7 +24,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'cyberpunk)
+(setq doom-theme 'standard)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -77,7 +77,13 @@
 
 ;; Color
 (map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
-(map! :leader :desc "Toggle color preview" "t c" #'rainbow-mode)
+(map! :leader :desc "Color preview" "t c" #'rainbow-mode)
+
+;; Toggle line highlight
+(map! :leader :desc "Line highlighting" "t h" #'hl-line-mode)
+
+;; stop line highlight from autostarting
+(global-hl-line-mode -1)
 
 ;; Arduino 😄
 (load! "./arduino-mode.el")

@@ -5,11 +5,18 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-typedef struct {
+struct ssettingspair {
+  char *name;
+  bool state;
+};
 
-} s_settings;
+struct savesettings {
+  size_t sspair_l;
+  struct ssettingspair *settings;
+};
 
-extern bool b_unsavedChanges;
-extern size_t saveChanges(s_settings *);
+extern int saveSettings(char *pathToConfig, struct savesettings *settings);
+
+extern int getSettings(char *pathToConfig, struct savesettings *settings);
 
 #endif // H_SAVE

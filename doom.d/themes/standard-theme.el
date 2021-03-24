@@ -7,7 +7,7 @@
      (((class color) (min-colors #xFFFFFF)))
 
      (standard-black "black")
-     (standard-darker-grey "grey3")
+     (standard-darker-grey "grey7")
      (standard-dark-grey "DimGrey")
      (standard-light-grey "gainsboro")
      (standard-white "white")
@@ -49,7 +49,7 @@
      (font-lock-function-name-face      (:foreground standard-green))
      (font-lock-type-face               (:foreground standard-light-cyan))
 
-     (hl-line                           (:background standard-darker-grey))
+     (hl-line                           (:background standard-dark-grey))
 
      )
  )
