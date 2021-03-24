@@ -83,7 +83,7 @@
 (map! :leader :desc "Line highlighting" "t h" #'hl-line-mode)
 
 ;; stop line highlight from autostarting
-(global-hl-line-mode -1)
+(remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
 
 ;; Arduino 😄
 (load! "./arduino-mode.el")
