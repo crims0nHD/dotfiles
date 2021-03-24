@@ -69,9 +69,9 @@
        dired             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ibuffer         ; interactive buffer management
+       (opacity +onstartup)           ; HACK custom package for opacity control
        undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
-       (opacity +onstartup)           ; HACK custom package for opacity control
 
        :term
        ;;eshell            ; the elisp shell that works everywhere
@@ -112,6 +112,7 @@
 
        :lang
        ;;agda              ; types of types of types of types...
+       arduino          ; HACK custom arduino package
        cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all

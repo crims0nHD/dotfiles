@@ -86,7 +86,7 @@
 (remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
 
 ;; Arduino 😄
-(load! "./arduino-mode.el")
+;;(load! "./arduino-mode.el")
 
 ;; Background opacity
 (map! :leader :desc "Frame opacity" "t o" #'toggle-opacity)
