@@ -99,4 +99,5 @@
 (let ((proc (get-buffer-process (current-buffer))))
 (when (processp proc)
 (set-process-query-on-exit-flag proc nil))))
-(add-hook 'term-exec-hook 'set-no-process-query-on-exit)
+(add-hook 'term-exec-hook 'set-no-process-query-on-exit) ;; ansi-term
+(add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
