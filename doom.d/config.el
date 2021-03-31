@@ -76,7 +76,7 @@
 (remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
 
 ;; Background opacity
-(map! :leader :desc "Frame opacity" "t o" #'toggle-opacity)
+(map! :leader :desc "Frame opacity" "t o" #'opacity-toggle)
 
 ;;; Don't whine if there is a terminal open.
 (defun set-no-process-query-on-exit ()

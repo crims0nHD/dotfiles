@@ -1,6 +1,6 @@
 ;;;###autoload
 ;; Code
-(defun set-opacity (active inactive)
+(defun opacity-set (active inactive)
   (interactive)
   (unless (integerp active)
     (error "argument active: wrong type")
@@ -12,20 +12,3 @@
   (add-to-list 'default-frame-alist (cons 'alpha (cons active inactive)))
   )
 
-(defun toggle-opacity ()
-  (interactive)
-  (unless opacity/is-termux
-    (if opacity-is-enabled
-	(progn ;; true (not nil)
-          (set-opacity 100 100)
-	  (setq opacity-is-enabled nil)
-	  (message "Frame opacity disabled")
-	  )
-	(progn ;; false (nil)
-          (set-opacity opacity-active opacity-inactive)
-	  (setq opacity-is-enabled t)
-	  (message "Frame opacity enabled")
-	  )
-	)
-    )
-  )
