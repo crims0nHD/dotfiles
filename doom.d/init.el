@@ -66,15 +66,15 @@
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
-       dired             ; making dired pretty [functional]
+       (dired +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
-       ibuffer         ; interactive buffer management
-       (opacity +onstartup)           ; HACK custom package for opacity control
+       (ibuffer +icons)         ; interactive buffer management
+       (opacity)           ; HACK custom package for opacity control. flags: +onstartup
        undo              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
-       ;;eshell            ; the elisp shell that works everywhere
+       eshell            ; the elisp shell that works everywhere
        ;;shell             ; simple shell REPL for Emacs
        ;;term              ; basic terminal emulator for Emacs
        vterm             ; the best terminal emulation in Emacs
@@ -108,12 +108,12 @@
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
-       tty               ; improve the terminal Emacs experience
+       (tty +osc)               ; improve the terminal Emacs experience
 
        :lang
        ;;agda              ; types of types of types of types...
        arduino          ; HACK custom arduino package
-       cc                ; C/C++/Obj-C madness
+       (cc +lsp)                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
@@ -152,7 +152,7 @@
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
        ;;purescript        ; javascript, but functional
-       python            ; beautiful is better than ugly
+       (python +lsp +cython +pyenv)            ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
@@ -162,7 +162,7 @@
        rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;scheme            ; a fully conniving family of lisps
-       sh                ; she sells {ba,z,fi}sh shells on the C xor
+       (sh +fish)                ; she sells {ba,z,fi}sh shells on the C xor
        ;;sml
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
@@ -180,6 +180,7 @@
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
+       (eaf)            ; emacs application framework
 
        :config
        ;;literate

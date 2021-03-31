@@ -32,7 +32,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type "relative")
+(setq display-line-numbers-type t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -55,25 +55,15 @@
 ;; Movement
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
 
+;; Dired
+(map! :map dired-mode-map
+      :desc "Create File"
+      :nv "c"
+      #'dired-create-empty-file)
+
 ;; Git / Magit
 (map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
 (map! :leader :desc "Push to upstream branch" "g p" #'magit-push-current-to-upstream)
-(load! "./git-identity.el")
-(use-package! git-identity
-  :ensure t
-  :after magit
-  :config
-  (git-identity-magit-mode 1)
-  ;; Bind I to git-identity-info in magit-status
-  (define-key magit-status-mode-map (kbd "I") 'git-identity-info)
-  :custom
-  ;; Warn if the global identity setting violates your policy
-  (git-identity-verify t)
-  ;; The default user name
-  (git-identity-default-username "David Hintringer"))
-(setq git-identity-list '(("gamedavid.dh@gmail.com"
-                          :domains ("github.com")
-                          )))
 
 ;; Color
 (map! :leader :desc "Insert Emacs Color" "i c" #'counsel-colors-emacs)
@@ -84,9 +74,6 @@
 
 ;; stop line highlight from autostarting
 (remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
-
-;; Arduino 😄
-;;(load! "./arduino-mode.el")
 
 ;; Background opacity
 (map! :leader :desc "Frame opacity" "t o" #'toggle-opacity)

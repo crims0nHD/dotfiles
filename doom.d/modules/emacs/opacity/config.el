@@ -2,6 +2,7 @@
 (setq opacity-active 90)
 (setq opacity-inactive 90)
 
+(setq opacity-on-startup nil)
 (when (featurep! +onstartup)
     (setq opacity-on-startup t))
 
