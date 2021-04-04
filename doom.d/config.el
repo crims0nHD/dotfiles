@@ -54,6 +54,7 @@
 
 ;; Movement
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
+(setq aw-scope 'global)
 
 ;; Dired
 (map! :map dired-mode-map
