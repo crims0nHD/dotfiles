@@ -78,6 +78,12 @@
 ;; Background opacity
 (map! :leader :desc "Frame opacity" "t o" #'opacity-toggle)
 
+;; Emacs application framwork
+(map! :leader :prefix-map ("o SPC" . "EAF Applications"))
+(map! :leader :desc "EAF Browser" "o SPC b" #'eaf-open-browser)
+(map! :leader :desc "EAF Terminal" "o SPC t" #'eaf-open-terminal)
+(map! :leader :desc "EAF Jupyter" "o SPC j" #'eaf-open-jupyter)
+
 ;;; Don't whine if there is a terminal open.
 (defun set-no-process-query-on-exit ()
 (let ((proc (get-buffer-process (current-buffer))))
