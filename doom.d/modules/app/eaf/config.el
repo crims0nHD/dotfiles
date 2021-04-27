@@ -1,8 +1,12 @@
 ;; emacs application framework stuff
 ;; https://github.com/manateelazycat/emacs-application-framework
 ;; installation: git clone --depth=1 -b master https://github.com/manateelazycat/emacs-application-framework.git ~/.emacs.d/site-lisp/emacs-application-framework/
+(setq eaf-installation-path "~/.emacs.d/site-lisp/emacs-application-framework")
+
+(if (file-directory-p eaf-installation-path)
+  (progn
 (use-package! eaf
-  :load-path "~/.emacs.d/site-lisp/emacs-application-framework" ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
+  :load-path eaf-installation-path ; Set to "/usr/share/emacs/site-lisp/eaf" if installed from AUR
   :init
   (use-package! epc :defer t :ensure t)
   (use-package! ctable :defer t :ensure t)
@@ -49,3 +53,6 @@
 (when (featurep! +default-browser)
   (setq browse-url-browser-function 'eaf-open-browser)
   (defalias 'browse-web #'eaf-open-browser))
+)
+  (message "EAF installation not found!");
+  )
