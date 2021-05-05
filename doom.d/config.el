@@ -62,6 +62,17 @@
       :nv "c"
       #'dired-create-empty-file)
 
+;; C mode specialties
+(defun c-insert-weird-arrow ()
+  (interactive)
+  (insert "->")
+  )
+
+(map! :map c-mode-map
+      :desc "Insert ->"
+      :nv "C-."
+      #'c-insert-weird-arrow)
+
 ;; Git / Magit
 (map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
 (map! :leader :desc "Push to upstream branch" "g p" #'magit-push-current-to-upstream)
