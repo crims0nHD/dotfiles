@@ -52,6 +52,9 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Seek and Replace
+(map! :leader :desc "Replace String in line" "r" #'replace-string)
+
 ;; Movement
 (map! :leader :desc "Ace Window" "w a" #'ace-window)
 (setq aw-scope 'global)

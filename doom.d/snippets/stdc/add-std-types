@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Add standard types
+# uuid: 
+# key: trigger-key
+# condition: t
+# --
+
+#include <stdint.h>
+#include <stdbool.h>
