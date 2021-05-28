@@ -33,6 +33,8 @@ set ruler
 set undolevels=1000
 set backspace=indent,eol,start
 
+tnoremap <Esc> <C-\><C-n>
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " sick theme
@@ -85,6 +87,10 @@ if executable('clangd') "clangd stuff
         autocmd FileType objcpp setlocal omnifunc=lsp#complete
     augroup end
 endif
+
+" nerdtree sidebar
+Plug 'preservim/nerdtree'
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 call plug#end()
 
