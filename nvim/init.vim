@@ -43,7 +43,7 @@ Plug 'morhetz/gruvbox'
 " faster grep
 Plug 'jremmen/vim-ripgrep'
 
-" Idk
+" Git integration
 Plug 'tpope/vim-fugitive'
 
 " manfiles
@@ -60,6 +60,11 @@ Plug 'https://github.com/Valloric/YouCompleteMe'
 
 " Undo
 Plug 'mbbill/undotree'
+nnoremap <F5> :UndotreeToggle<CR>
+
+" Autoclose brackets
+Plug 'https://github.com/spf13/vim-autoclose'
+let g:autoclose_vim_commentmode = 1
 
 " Powerline
 Plug 'https://github.com/vim-airline/vim-airline'
