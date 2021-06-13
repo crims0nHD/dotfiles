@@ -99,8 +99,8 @@ theme.icon_theme = nil
 
 -- Wibar
 -- --------
-theme.wibar_bg		= "#1F1869"
-theme.wibar_fg		= "#fa02ee"
+theme.wibar_bg		= "#3c3836"
+theme.wibar_fg		= "#ebdbb2"
 theme.wibar_stretch	= true
 theme.wibar_opacity	= 0.6
 

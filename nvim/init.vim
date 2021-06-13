@@ -10,7 +10,6 @@ set wildignore+=**/android/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
 
-set number	
 set showbreak=+++
 set textwidth=100
 set showmatch	
@@ -99,9 +98,21 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 call plug#end()
 
+" color thingi
 colorscheme gruvbox
 set background=dark
 
 if executable('rg')
     let g:rg_derive_root='true'
 endif
+
+" hybrid line number switcharoo
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+" save as root
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
