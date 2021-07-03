@@ -42,6 +42,9 @@ Plug 'morhetz/gruvbox'
 " faster grep
 Plug 'jremmen/vim-ripgrep'
 
+" Enable nvimpager to work correctly on gentoo
+Plug 'chrisbra/Colorizer'
+
 " Git integration
 Plug 'tpope/vim-fugitive'
 
