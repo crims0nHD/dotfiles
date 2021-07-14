@@ -5,7 +5,7 @@
 
 echo "Checking dependencies..."
 
-DEPS=(nvim curl emacs doas zsh pip cmake clang)
+DEPS=(nvim curl emacs doas zsh pip cmake clang tmux)
 for dep in "${DEPS[@]}"
 do
     if [ -z $(which $dep) ]
@@ -16,6 +16,11 @@ do
         echo "Found $dep"
     fi
 done
+
+if [ -z /usr/include/python* ]
+then
+    echo "Python headers not found... Install python3-devel or similar"
+fi
 
 echo "Done checking dependencies"
 
@@ -43,8 +48,8 @@ echo "Symlinking home"
 pushd ./home
 for f in ./*
 do
-    ln -s ${PWD}/$f ${HOME}/.$f
-    echo "Symlinked .$f"
+    ln -s ${PWD}/$f ${HOME}/$f
+    echo "Symlinked $f"
 done
 popd
 
@@ -58,7 +63,7 @@ pushd ./scripts
 for f in ./get*.sh
 do
     echo "Executing $f"
-    ./$f
+    $f
 done
 popd
 echo "Done fetching tools and utils"
@@ -71,7 +76,7 @@ pushd ./scripts
 for f in ./fix*.sh
 do
     echo "Executing $f"
-    ./$f
+    $f
 done
 popd
 echo "Done applying fixes"
