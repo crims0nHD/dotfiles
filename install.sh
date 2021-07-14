@@ -17,9 +17,10 @@ do
     fi
 done
 
-if [ -z /usr/include/python* ]
+if [ $(find "/usr/include/python/" -type f | wc -l) -lt 10 ]
 then
     echo "Python headers not found... Install python3-devel or similar"
+    exit 1
 fi
 
 echo "Done checking dependencies"
