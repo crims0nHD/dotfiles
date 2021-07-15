@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DOOM_INSTALL_DIR="$HOME/.emacs.d"
+DOOM_INSTALL_DIR="$HOME/.emacsinstalls/doom"
 
 git clone --depth 1 https://github.com/hlissner/doom-emacs $DOOM_INSTALL_DIR
 

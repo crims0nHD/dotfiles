@@ -88,6 +88,9 @@ donewith "Done symlinking home"
 # Install stuff
 # ------------------------
 
+echo "Creating $HOME/.emacsinstalls"
+mkdir -p $HOME/.emacsinstalls
+
 echo "Fetching and installing tools and utils"
 pushd ./scripts
 for f in ./get*.sh
