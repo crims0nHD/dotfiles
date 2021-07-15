@@ -17,7 +17,7 @@ do
     fi
 done
 
-if [ $(find "/usr/include/python/" -type f | wc -l) -lt 10 ]
+if [ $(find "/usr/include/python3.9/" -type f | wc -l) -lt 10 ]
 then
     echo "Python headers not found... Install python3-devel or similar"
     exit 1
