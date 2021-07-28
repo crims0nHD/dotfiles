@@ -25,5 +25,14 @@ export EDITOR=nvim
 alias ls="ls --color"
 alias ll="ls -l"
 
-alias emacsc="emacsclient --no-wait"
-alias emacsct="emacsclient -nw"
+alias emacsc="emacsclient --no-wait -c"
+alias emacsct="emacsclient -nw -c"
+
+if [[ -z $(which emacs) ]]
+then
+	echo "No executable named emacs found. Please install emacs."
+else
+
+	ESERVERS=$(ls /tmp/emacs1000)	
+fi
+
