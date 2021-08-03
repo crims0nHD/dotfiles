@@ -85,6 +85,30 @@ popd
 
 donewith "Done symlinking home"
 
+# Link daemons
+# ------------------------
+
+echo "Symlinking daemons"
+
+if [ -z $(which systemctl) ]
+then
+    echo "Systemd detected"
+    mkdir -p ~/.config/systemd/user
+    pushd ./daemons/systemd
+    for f in ./*
+    do
+        ln -s ${PWD}/$f ${HOME}/.config/systemd/user/$f
+        echo "Symlinked $f"
+        systemctl enable --user $f
+        systemctl start --user $f
+    done
+    popd
+else
+    echo "No suitable service manager detected... wth"
+fi
+
+donewith "Done symlinking daemons"
+
 # Install stuff
 # ------------------------
 

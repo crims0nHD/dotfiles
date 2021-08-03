@@ -36,3 +36,19 @@ else
 	ESERVERS=$(ls /tmp/emacs1000)	
 fi
 
+# Replacement for sudoedit based on doas
+doasedit(){
+	local filepath=${1:?No file specified}
+	local tmpstorage="/tmp/doasedit/${RANDOM}/"
+	local userwhoisediting=$USER
+	local originaluser=$(stat -c '%U' $filepath)
+	mkdir -p $tmpstorage
+	doas zsh -c "cp ${filepath} ${tmpstorage} && chown ${userwhoisediting} ${tmpstorage}/*"
+	for f in ${tmpstorage}/*
+	do
+		$EDITOR $f
+	done
+	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
+}
+export -f doasedit
+alias doasedit=doasedit
