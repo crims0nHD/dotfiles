@@ -24,7 +24,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-dracula)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -54,6 +54,11 @@
 
 ;; Seek and Replace
 (map! :leader :desc "Replace String in line" "r" #'replace-string)
+
+;; Font resizing
+;;(map! :desc "Increase current font size" "C-+" #'doom/increase-font-size)
+;;(map! :desc "Reset current font size" "C-=" #'doom/reset-font-size)
+;;(map! :desc "Decrease current font size" "C--" #'doom/reset-font-size)
 
 ;; Movement
 (map! :leader :desc "Ace Window" "w a" #'ace-window)

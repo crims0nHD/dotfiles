@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Definitions
 # ------------------------
@@ -36,7 +36,7 @@ finaldone()
 # ------------------------
 echo "Checking dependencies..."
 
-DEPS=(nvim curl emacs doas zsh pip cmake clang tmux)
+DEPS=(nvim curl emacs doas zsh pip cmake clang tmux python3)
 for dep in "${DEPS[@]}"
 do
     if [ -z $(which $dep) ]
@@ -78,7 +78,7 @@ echo "Symlinking home"
 pushd ./home
 for f in ./*
 do
-    ln -s ${PWD}/$f ${HOME}/$f
+    ln -s ${PWD}/$f ${HOME}/.$f
     echo "Symlinked $f"
 done
 popd

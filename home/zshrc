@@ -32,8 +32,12 @@ if [[ -z $(which emacs) ]]
 then
 	echo "No executable named emacs found. Please install emacs."
 else
-
+	if [[ -f /tmp/emacs1000 ]]
+	then
 	ESERVERS=$(ls /tmp/emacs1000)	
+	else
+	echo "Warning: Emacs server not started!"
+	fi
 fi
 
 # Replacement for sudoedit based on doas
@@ -50,5 +54,5 @@ doasedit(){
 	done
 	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
 }
-export -f doasedit
+
 alias doasedit=doasedit
