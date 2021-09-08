@@ -138,5 +138,8 @@ done
 popd
 donewith "Done applying fixes"
 
+echo "Enable the git credential storage"
+git config credential.helper store
+
 finaldone "Done with installation... Have a nice day!"
 exit 0

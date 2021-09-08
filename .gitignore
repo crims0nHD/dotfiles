@@ -3,3 +3,6 @@ nvim/.netrwhist
 _linkapp/obj/*
 _linkapp/bin/*
 vifm/vifminfo.json
+
+home/.git-credentials
+config/git/credentials
