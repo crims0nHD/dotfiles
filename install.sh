@@ -76,7 +76,7 @@ donewith "Done symlinking .config"
 
 echo "Symlinking home"
 pushd ./home
-for f in ./*
+for f in *
 do
     ln -s ${PWD}/$f ${HOME}/.$f
     echo "Symlinked $f"

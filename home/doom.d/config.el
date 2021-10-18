@@ -55,14 +55,21 @@
 ;; Seek and Replace
 (map! :leader :desc "Replace String in line" "r" #'replace-string)
 
+;; Projectile
+(map! :leader :desc "Find string in project" "p SPC" #'+helm:project-search)
+
 ;; Font resizing
 ;;(map! :desc "Increase current font size" "C-+" #'doom/increase-font-size)
 ;;(map! :desc "Reset current font size" "C-=" #'doom/reset-font-size)
 ;;(map! :desc "Decrease current font size" "C--" #'doom/reset-font-size)
 
 ;; Movement
-(map! :leader :desc "Ace Window" "w a" #'ace-window)
-(setq aw-scope 'global)
+(defun ace-window-global (arg)
+  (interactive "p")
+  (setq aw-scope #'global)
+  (ace-window arg)
+  )
+(map! :leader :desc "Ace Window" "w a" #'ace-window-global)
 
 ;; Dired
 (map! :map dired-mode-map

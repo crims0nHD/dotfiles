@@ -4,5 +4,11 @@ _linkapp/obj/*
 _linkapp/bin/*
 vifm/vifminfo.json
 
+config/awesome/awesome
+config/fish/fish
+config/kitty/kitty
+config/nvim/nvim
+config/vifm/vifm
+
 home/.git-credentials
 config/git/credentials

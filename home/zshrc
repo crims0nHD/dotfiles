@@ -40,6 +40,8 @@ else
 	fi
 fi
 
+alias doom="~/.emacsinstalls/doom/bin/doom"
+
 # Replacement for sudoedit based on doas
 doasedit(){
 	local filepath=${1:?No file specified}
@@ -54,5 +56,3 @@ doasedit(){
 	done
 	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
 }
-
-alias doasedit=doasedit
