@@ -1,9 +1,39 @@
+#+TITLE: Doom emacs literate config
+#+AUTHOR: David Hintringer
+#+EMAIL: gamedavid.dh@gmail.com
+#+LANGUAGE: en
+
+* Personal infos
+#+BEGIN_SRC emacs-lisp
+(setq user-full-name "David Hintringer"
+      user-mail-address "gamedavid.dh@gmail.com")
+#+END_SRC
+
+* Directories
+** Org files
+#+begin_src emacs-lisp :tangle yes
 (setq org-directory "~/org/")
+#+end_src
 
+** Org-roam files
+TODO
+
+** Project directories
+All directories in those folders should automatically be considered projects
+#+begin_src emacs-lisp :tangle yes
 (setq project-directories '("~/src/"))
+#+end_src
 
+* Theming
+** Theme
+My theme of choice
+#+BEGIN_SRC emacs-lisp
 (setq loaded-theme-name 'doom-outrun-electric)
+#+END_SRC
 
+** Custom theme patches
+Logic for applying customisations to a theme
+#+BEGIN_SRC emacs-lisp
 (load-theme loaded-theme-name t)
 
 ;; Apply custom modifications to loaded theme
@@ -11,17 +41,35 @@
   (progn
     (set-face-background 'hl-line "DimGrey")
     ))
+#+END_SRC
 
+** Font
+#+begin_src emacs-lisp :tangle yes
 (setq doom-font (font-spec :family "Fira Code"
                            :size 12))
+#+end_src
 
+** Line numbers
+I like to use both relative and absolute line numbers
+#+BEGIN_SRC emacs-lisp
 (setq display-line-numbers-type t)
+#+END_SRC
 
+** Line highlighting
+#+begin_src emacs-lisp
 (map! :leader :desc "Line highlighting" "t h" #'hl-line-mode)
 (remove-hook 'doom-first-buffer-hook #'global-hl-line-mode)
+#+end_src
 
+** Background opacity
+#+begin_src emacs-lisp
 (map! :leader :desc "Frame opacity" "t o" #'opacity-toggle)
+#+end_src
 
+* General Workflow
+** Movement with Ace-Window
+I don't know why but to use ace-window across frames you need to set aw-scope to global every time.
+#+begin_src emacs-lisp :tangle yes
 (defun ace-window-global (arg)
   (interactive "p")
   (setq aw-scope #'global)
@@ -29,33 +77,67 @@
   )
 
 (map! :leader :desc "Ace Window" "w a" #'ace-window-global)
+#+end_src
 
+** String location and manipulation
+*** Locate string within project
+This makes use of helm (TODO: Alternatives to helm)
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :desc "Find string in project" "p SPC" #'+helm:project-search)
+#+end_src
 
+*** Replace string in line
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :desc "Replace String in line" "r" #'replace-string)
+#+end_src
 
+** Colors
+*** Insertion of colors
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :prefix-map ("i c" . "Color codes"))
 (map! :leader :desc "Insert Emacs Color" "i c e" #'counsel-colors-emacs)
 (map! :leader :desc "Insert Web Color" "i c w" #'counsel-colors-web)
+#+end_src
 
+*** Preview toggle of color codes within source code
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :desc "Color preview" "t c" #'rainbow-mode)
+#+end_src
 
+** Terminals
+To prevent emacs from complaining before closing the external processes
+#+begin_src emacs-lisp :tangle yes
 (defun set-no-process-query-on-exit ()
 (let ((proc (get-buffer-process (current-buffer))))
 (when (processp proc)
 (set-process-query-on-exit-flag proc nil))))
 (add-hook 'term-exec-hook 'set-no-process-query-on-exit) ;; ansi-term
 (add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
+#+end_src
 
+** Font size control
+I really dislike the default bindings for resizing the font
+#+begin_src emacs-lisp :tangle yes
 (map! :desc "Increase current font size" "C-M-+" #'doom/increase-font-size)
 (map! :desc "Reset current font size" "C-M-=" #'doom/reset-font-size)
 (map! :desc "Decrease current font size" "C-M--" #'doom/decrease-font-size)
+#+end_src
 
+** Editing configs
+*** config.org
+Why is there no default binding to edit the literate config?
+#+begin_src emacs-lisp :tangle yes
 (defun doom/goto-private-literate-config ()
        (interactive)
        (find-file (expand-file-name "~/.doom.d/config.org")))
 (map! :leader :desc "Edit literate config" "h d o" #'doom/goto-private-literate-config)
+#+end_src
+* Modes
+Here lie the configurations of specific modes used for programming and etc...
 
+** C-Mode
+Pointer dereferencing made (slightly) easier
+#+begin_src emacs-lisp :tangle yes
 (defun c-insert-weird-arrow ()
   (interactive)
   (insert "->")
@@ -65,16 +147,26 @@
       :desc "Insert ->"
       :nv "C-."
       #'c-insert-weird-arrow)
+#+end_src
 
+** Dired
+#+begin_src emacs-lisp :tangle yes
 (map! :map dired-mode-map
       :desc "Create File"
       :nv "c"
       #'dired-create-empty-file)
+#+end_src
 
+** Magit
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :desc "Stage all changes" "g a" #'magit-stage-modified)
 (map! :leader :desc "Push to upstream branch" "g p" #'magit-push-current-to-upstream)
+#+end_src
 
+** Emacs-Application-Framework (custom)
+#+begin_src emacs-lisp :tangle yes
 (map! :leader :prefix-map ("o SPC" . "EAF Applications"))
 (map! :leader :desc "EAF Browser" "o SPC b" #'eaf-open-browser)
 (map! :leader :desc "EAF Terminal" "o SPC t" #'eaf-open-terminal)
 (map! :leader :desc "EAF Jupyter" "o SPC j" #'eaf-open-jupyter)
+#+end_src

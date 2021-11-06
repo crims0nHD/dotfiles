@@ -12,3 +12,5 @@ config/vifm/vifm
 
 home/.git-credentials
 config/git/credentials
+
+home/doom.d/config.el
