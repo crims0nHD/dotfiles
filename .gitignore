@@ -2,15 +2,20 @@ awesome/wp/default.*
 nvim/.netrwhist
 _linkapp/obj/*
 _linkapp/bin/*
+# Caches
 vifm/vifminfo.json
 
+# Buggy linking
 config/awesome/awesome
 config/fish/fish
 config/kitty/kitty
 config/nvim/nvim
 config/vifm/vifm
 
+# git credentials
 home/.git-credentials
 config/git/credentials
 
+# Doom emacs
 home/doom.d/config.el
+home/doom.d/custom.el
