@@ -40,7 +40,6 @@ My theme of choice
 Logic for applying customisations to a theme
 #+BEGIN_SRC emacs-lisp :tangle yes
 (load-theme loaded-theme-name t)
-(message "Custom Theme apply point hit")
 
 ;; Apply custom modifications to loaded theme
 ;; TODO
@@ -127,6 +126,11 @@ To prevent emacs from complaining before closing the external processes
 (add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
 #+end_src
 
+Make mouse actions available when emacs is running in a terminal
+#+begin_src emacs-lisp :tangle yes
+(xterm-mouse-mode 1)
+#+end_src
+
 ** Font size control
 I really dislike the default bindings for resizing the font
 #+begin_src emacs-lisp :tangle yes
@@ -185,4 +189,13 @@ Pointer dereferencing made (slightly) easier
 (setq eaf-installation-repo     "https://github.com/crims0nHD/emacs-application-framework.git")
 (setq eaf-installation-branch
       "development")
+#+end_src
+
+* Organisation
+** Calendar
+Configure and open the calendar
+#+begin_src emacs-lisp :tangle yes
+
+
+(map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 #+end_src

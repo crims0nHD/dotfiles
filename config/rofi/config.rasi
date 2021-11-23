@@ -58,6 +58,8 @@
     border-color:                @blue;
     spacing:                     2;
     background-color:            @transparent-background;
+
+	modi:	"drun,window,ssh,combi";
 }
 window {
     background-color: @background;

@@ -7,7 +7,7 @@
    ["#000000" "#ff6c6b" "#98be65" "#ECBE7B" "#0170bf" "#c678dd" "#46D9FF" "#bbc2cf"])
  '(auth-source-save-behavior nil)
  '(custom-safe-themes
-   '("da53441eb1a2a6c50217ee685a850c259e9974a8fa60e899d393040b4b8cc922" "8d7b028e7b7843ae00498f68fad28f3c6258eda0650fe7e17bfb017d51d0e2a2" "7a7b1d475b42c1a0b61f3b1d1225dd249ffa1abb1b7f726aec59ac7ca3bf4dae" "8fd2d543bdaa2858240dd7814bd8ee78c869f90bffed37a06316dd6407510260" default))
+   '("cbdf8c2e1b2b5c15b34ddb5063f1b21514c7169ff20e081d39cf57ffee89bc1e" "da53441eb1a2a6c50217ee685a850c259e9974a8fa60e899d393040b4b8cc922" "8d7b028e7b7843ae00498f68fad28f3c6258eda0650fe7e17bfb017d51d0e2a2" "7a7b1d475b42c1a0b61f3b1d1225dd249ffa1abb1b7f726aec59ac7ca3bf4dae" "8fd2d543bdaa2858240dd7814bd8ee78c869f90bffed37a06316dd6407510260" default))
  '(exwm-floating-border-color "#1c1f24")
  '(fci-rule-color "#5B6268")
  '(highlight-tail-colors ((("#0f130a") . 0) (("#071519") . 20)))
@@ -40,7 +40,8 @@
     (cons 320 "#836468")
     (cons 340 "#5B6268")
     (cons 360 "#5B6268")))
- '(vc-annotate-very-old-color nil))
+ '(vc-annotate-very-old-color nil)
+ '(warning-suppress-types '((comp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

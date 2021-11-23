@@ -19,3 +19,6 @@ config/git/credentials
 # Doom emacs
 home/doom.d/config.el
 home/doom.d/custom.el
+
+# Qtile
+*/__pycache__

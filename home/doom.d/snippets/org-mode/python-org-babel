@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: python-org-babel
+# key:
+# --
+#+begin_src python :tangle yes
+
+#+end_src

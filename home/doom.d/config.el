@@ -1,19 +1,34 @@
+(setq user-full-name "David Hintringer"
+      user-mail-address "gamedavid.dh@gmail.com")
+
 (setq org-directory "~/org/")
 
-(setq project-directories '("~/src/"))
+(setq org-roam-directory (file-truename "~/org-roam"))
+(if (not (file-exists-p org-roam-directory))
+    (make-directory org-roam-directory))
+
+(setq projectile-project-search-path '("~/src/"))
+(projectile-discover-projects-in-search-path)
 
 (setq loaded-theme-name 'doom-outrun-electric)
 
 (load-theme loaded-theme-name t)
 
 ;; Apply custom modifications to loaded theme
+;; TODO
 (if loaded-theme-name 'doom-outrun-electric
   (progn
-    (set-face-background 'hl-line "DimGrey")
-    ))
+    (setq doom-theme 'doom-outrun-electric)
+    (set-face-background 'hl-line "DimGrey")))
 
 (setq doom-font (font-spec :family "Fira Code"
-                           :size 12))
+                           :size 16))
+(setq doom-big-font (font-spec :family "Fira Code"
+                               :size 24))
+(setq doom-variable-pitch-font (font-spec :family "Fira Code"
+                                          :size 12))
+(setq doom-unicode-font (font-spec :family "Fira Code"))
+(setq doom-serif-font (font-spec :family "Fira Code" :weight 'light))
 
 (setq display-line-numbers-type t)
 
@@ -25,8 +40,7 @@
 (defun ace-window-global (arg)
   (interactive "p")
   (setq aw-scope #'global)
-  (ace-window arg)
-  )
+  (ace-window arg))
 
 (map! :leader :desc "Ace Window" "w a" #'ace-window-global)
 
@@ -47,9 +61,11 @@
 (add-hook 'term-exec-hook 'set-no-process-query-on-exit) ;; ansi-term
 (add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
 
-(map! :desc "Increase current font size" "C-M-+" #'doom/increase-font-size)
-(map! :desc "Reset current font size" "C-M-=" #'doom/reset-font-size)
-(map! :desc "Decrease current font size" "C-M--" #'doom/decrease-font-size)
+(xterm-mouse-mode 1)
+
+(map! :map evil-normal-state-map :desc "Increase current font size" "C-M-+" #'doom/increase-font-size)
+(map! :map evil-normal-state-map :desc "Reset current font size" "C-M-=" #'doom/reset-font-size)
+(map! :map evil-normal-state-map :desc "Decrease current font size" "C-M--" #'doom/decrease-font-size)
 
 (defun doom/goto-private-literate-config ()
        (interactive)
@@ -58,8 +74,7 @@
 
 (defun c-insert-weird-arrow ()
   (interactive)
-  (insert "->")
-  )
+  (insert "->"))
 
 (map! :map c-mode-map
       :desc "Insert ->"
@@ -78,3 +93,10 @@
 (map! :leader :desc "EAF Browser" "o SPC b" #'eaf-open-browser)
 (map! :leader :desc "EAF Terminal" "o SPC t" #'eaf-open-terminal)
 (map! :leader :desc "EAF Jupyter" "o SPC j" #'eaf-open-jupyter)
+
+(setq eaf-installation-path "~/src/emacs-application-framework")
+(setq eaf-installation-repo     "https://github.com/crims0nHD/emacs-application-framework.git")
+(setq eaf-installation-branch
+      "development")
+
+(map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
