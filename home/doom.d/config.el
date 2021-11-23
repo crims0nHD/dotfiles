@@ -100,3 +100,15 @@
       "development")
 
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
+
+(defun interop-flatpak-update ()
+  (interactive)
+  (comint-send-string
+   (get-buffer-process (shell))
+   "flatpak update"))
+
+(defun interop-paru-update ()
+  (interactive)
+  (comint-send-string
+   (get-buffer-process (shell))
+   "paru -Syu"))

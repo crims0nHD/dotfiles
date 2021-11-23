@@ -195,7 +195,31 @@ Pointer dereferencing made (slightly) easier
 ** Calendar
 Configure and open the calendar
 #+begin_src emacs-lisp :tangle yes
-
-
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 #+end_src
+* Interopability
+Custom commands to work with other software
+** Package managers
+Package manager things like updating and installing packages
+*** Flatpak
+**** Update
+#+begin_src emacs-lisp :tangle yes
+(defun interop-flatpak-update ()
+  (interactive)
+  (comint-send-string
+   (get-buffer-process (shell))
+   "flatpak update"))
+#+end_src
+
+*** Paru
+**** Update
+#+begin_src emacs-lisp :tangle yes
+(defun interop-paru-update ()
+  (interactive)
+  (comint-send-string
+   (get-buffer-process (shell))
+   "paru -Syu"))
+#+end_src
+
+** Window managers
+** Window manager utils
