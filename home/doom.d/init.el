@@ -170,7 +170,7 @@
        irc               ; how neckbeards socialize
        (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
-       (eaf +custom-path)            ; emacs application framework
+       ;;(eaf +custom-path)            ; emacs application framework
 
        :config
        literate

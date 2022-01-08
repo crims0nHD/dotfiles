@@ -2,7 +2,7 @@ export ZSH="${HOME}/.oh-my-zsh"
 ZSH_THEME="gruvbox"
 SOLARIZED_THEME="dark"
 
-plugins=(git zsh-autosuggestions tmux)
+plugins=(git zsh-autosuggestions)
 
 # If vim is the terminal emulator
 if [[ -z ${VIMRUNTIME} ]] 
@@ -56,3 +56,5 @@ doasedit(){
 	done
 	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
 }
+
+export TERM=vt100

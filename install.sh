@@ -46,7 +46,7 @@ symlink()
 # ------------------------
 echo "Checking dependencies..."
 
-DEPS=(nvim curl emacs doas zsh pip cmake clang tmux python3)
+DEPS=(nvim curl emacs zsh pip cmake clang tmux python3)
 for dep in "${DEPS[@]}"
 do
     if [ -z $(which $dep) ]
@@ -57,10 +57,6 @@ do
     fi
 done
 
-if [ $(find "/usr/include/python3.9/" -type f | wc -l) -lt 10 ]
-then
-    error "Python headers not found... Install python3-devel or similar"
-fi
 
 donewith "Done checking dependencies"
 

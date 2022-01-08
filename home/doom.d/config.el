@@ -21,15 +21,6 @@
     (setq doom-theme 'doom-outrun-electric)
     (set-face-background 'hl-line "DimGrey")))
 
-(setq doom-font (font-spec :family "Fira Code"
-                           :size 16))
-(setq doom-big-font (font-spec :family "Fira Code"
-                               :size 24))
-(setq doom-variable-pitch-font (font-spec :family "Fira Code"
-                                          :size 12))
-(setq doom-unicode-font (font-spec :family "Fira Code"))
-(setq doom-serif-font (font-spec :family "Fira Code" :weight 'light))
-
 (setq display-line-numbers-type t)
 
 (map! :leader :desc "Line highlighting" "t h" #'hl-line-mode)
