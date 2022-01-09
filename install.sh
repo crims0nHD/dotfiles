@@ -44,21 +44,63 @@ symlink()
 
 # Check dependencies
 # ------------------------
-echo "Checking dependencies..."
+echo "Installing dependencies..."
 
-DEPS=(nvim curl emacs zsh pip cmake clang tmux python3)
-for dep in "${DEPS[@]}"
-do
-    if [ -z $(which $dep) ]
-    then
-        error "Error: $dep missing... Install $dep"
-    else
-        echo "Found $dep"
-    fi
-done
+# DEPS=(nvim curl emacs doas zsh pip cmake clang tmux python3)
+#for dep in "${DEPS[@]}"
+#do
+#    if [ -z $(which $dep) ]
+#    then
+#        error "Error: $dep missing... Install $dep"
+#    else
+#        echo "Found $dep"
+#    fi
+#done
 
+DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-devel python3-pip nodejs)
+#DEPS_ARCH_LINUX=()
+#DEPS_DEBIAN_LINUX=()
+#DEPS_GENTOO_LINUX=()
 
-donewith "Done checking dependencies"
+echo "Detecting os..."
+
+if [[ $(source /etc/os-release | echo $NAME) == "void" ]]
+<<<<<<< Updated upstream
+then
+   echo "Void Linux!"
+   sudo xbps-install -Syu
+   sudo xbps-install -Sy $DEPS_VOID_LINUX
+fi
+
+# DEPS=(nvim curl emacs doas zsh pip cmake clang tmux python3)
+#for dep in "${DEPS[@]}"
+#do
+#    if [ -z $(which $dep) ]
+#    then
+#        error "Error: $dep missing... Install $dep"
+#    else
+#        echo "Found $dep"
+#    fi
+#done
+
+DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-devel python3-pip nodejs)
+#DEPS_ARCH_LINUX=()
+#DEPS_DEBIAN_LINUX=()
+#DEPS_GENTOO_LINUX=()
+
+echo "Detecting os..."
+
+if [[ $(source /etc/os-release | echo $NAME) == "void" ]]
+=======
+>>>>>>> Stashed changes
+then
+   echo "Void Linux!"
+   sudo xbps-install -Syu
+   sudo xbps-install -Sy $DEPS_VOID_LINUX
+fi
+>>>>>>> Stashed changes
+
+donewith "Done installing dependencies"
 
 # Link config in .config
 # ------------------------
@@ -70,6 +112,11 @@ echo "Symlinking into .config"
 pushd ./config
 for f in *
 do
+    if [[ -f $f ]]
+    then
+        mv $f $f.old
+    fi
+
     ln -s ${PWD}/$f ${HOME}/.config/$f
     echo "Symlinked $f"
 done

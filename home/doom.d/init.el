@@ -8,6 +8,7 @@
        ;;chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
+       ;;gamepad           ; HACK wat
 
        :completion
        (company +childframe)           ; the ultimate code completion backend

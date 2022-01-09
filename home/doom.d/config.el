@@ -9,17 +9,49 @@
 
 (setq projectile-project-search-path '("~/src/"))
 (projectile-discover-projects-in-search-path)
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+
+;;(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
+>>>>>>> Stashed changes
+=======
+
+;;(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
+>>>>>>> Stashed changes
 
 (setq loaded-theme-name 'doom-outrun-electric)
 
 (load-theme loaded-theme-name t)
+(message "Custom Theme apply point hit")
 
 ;; Apply custom modifications to loaded theme
 ;; TODO
 (if loaded-theme-name 'doom-outrun-electric
   (progn
     (setq doom-theme 'doom-outrun-electric)
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
     (set-face-background 'hl-line "DimGrey")))
+=======
+=======
+>>>>>>> Stashed changes
+    (add-hook 'treemacs-mode-hook
+              (lambda () (set-face-background 'hl-line "DimGrey")))
+    ))
+
+(setq doom-font (font-spec :family "FiraMono NF"
+                           :size 16))
+(setq doom-big-font (font-spec :family "FiraMono NF"
+                               :size 24))
+(setq doom-variable-pitch-font (font-spec :family "FiraMono NF"
+                                          :size 12))
+(setq doom-unicode-font (font-spec :family "FiraMono NF"))
+(setq doom-serif-font (font-spec :family "FiraMono NF" :weight 'light))
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
 (setq display-line-numbers-type t)
 
@@ -52,8 +84,14 @@
 (add-hook 'term-exec-hook 'set-no-process-query-on-exit) ;; ansi-term
 (add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (xterm-mouse-mode 1)
 
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 (map! :map evil-normal-state-map :desc "Increase current font size" "C-M-+" #'doom/increase-font-size)
 (map! :map evil-normal-state-map :desc "Reset current font size" "C-M-=" #'doom/reset-font-size)
 (map! :map evil-normal-state-map :desc "Decrease current font size" "C-M--" #'doom/decrease-font-size)
@@ -89,6 +127,8 @@
 (setq eaf-installation-repo     "https://github.com/crims0nHD/emacs-application-framework.git")
 (setq eaf-installation-branch
       "development")
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 
@@ -103,3 +143,7 @@
   (comint-send-string
    (get-buffer-process (shell))
    "paru -Syu"))
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes

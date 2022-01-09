@@ -57,4 +57,20 @@ doasedit(){
 	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
 }
 
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
 export TERM=vt100
+=======
+=======
+>>>>>>> Stashed changes
+# If running on void linux
+if [[ -z $(which xbps-install) ]]
+then
+	alias xi="xbps-install"
+	alias xq="xbps-query"
+	export LANG=C
+fi
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
