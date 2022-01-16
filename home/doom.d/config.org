@@ -72,6 +72,9 @@ Logic for applying customisations to a theme
 #+begin_src emacs-lisp :tangle yes
 (setq doom-font (font-spec :family "FiraMono NF"
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -216,6 +219,7 @@ Pointer dereferencing made (slightly) easier
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 * Organisation
 ** Calendar
 Configure and open the calendar
@@ -248,6 +252,8 @@ Package manager things like updating and installing packages
 
 ** Window managers
 ** Window manager utils
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

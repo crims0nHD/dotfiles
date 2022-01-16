@@ -1,0 +1,6 @@
+[submodule "apps/dwm"]
+	path = apps/dwm
+	url = https://github.com/crims0nHD/dwm
+[submodule "apps/dwl"]
+	path = apps/dwl
+	url = https://github.com/crims0nHD/dwl

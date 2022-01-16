@@ -9,16 +9,8 @@
 
 (setq projectile-project-search-path '("~/src/"))
 (projectile-discover-projects-in-search-path)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
 
 ;;(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
->>>>>>> Stashed changes
-=======
-
-;;(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
->>>>>>> Stashed changes
 
 (setq loaded-theme-name 'doom-outrun-electric)
 
@@ -32,8 +24,11 @@
     (setq doom-theme 'doom-outrun-electric)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     (set-face-background 'hl-line "DimGrey")))
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
     (add-hook 'treemacs-mode-hook
@@ -49,6 +44,9 @@
 (setq doom-unicode-font (font-spec :family "FiraMono NF"))
 (setq doom-serif-font (font-spec :family "FiraMono NF" :weight 'light))
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -86,8 +84,11 @@
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 (xterm-mouse-mode 1)
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -129,6 +130,7 @@
       "development")
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 
@@ -143,6 +145,8 @@
   (comint-send-string
    (get-buffer-process (shell))
    "paru -Syu"))
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======

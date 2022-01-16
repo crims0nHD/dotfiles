@@ -65,7 +65,6 @@ DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-dev
 echo "Detecting os..."
 
 if [[ $(source /etc/os-release | echo $NAME) == "void" ]]
-<<<<<<< Updated upstream
 then
    echo "Void Linux!"
    sudo xbps-install -Syu
@@ -91,6 +90,8 @@ DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-dev
 echo "Detecting os..."
 
 if [[ $(source /etc/os-release | echo $NAME) == "void" ]]
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 then
