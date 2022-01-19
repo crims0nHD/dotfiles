@@ -38,7 +38,7 @@ Great distro, maybe my favourite, however not without issues
 *** Rust src path
 Rust analyzer (lsp server) reads the environment variable below to get the path to rust-src
 #+begin_src emacs-lisp :tangle yes
-;;(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
+(setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
 #+end_src
 
 * Theming
@@ -63,29 +63,9 @@ Logic for applying customisations to a theme
     ))
 #+END_SRC
 
-<<<<<<< Updated upstream
 ** Fonts (TODO)
 #+begin_src emacs-lisp :tangle no
 (setq doom-font (font-spec :family "Fira Code"
-=======
-** Fonts
-#+begin_src emacs-lisp :tangle yes
-(setq doom-font (font-spec :family "FiraMono NF"
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-                           :size 16))
-(setq doom-big-font (font-spec :family "FiraMono NF"
-                               :size 24))
-(setq doom-variable-pitch-font (font-spec :family "FiraMono NF"
-                                          :size 12))
-(setq doom-unicode-font (font-spec :family "FiraMono NF"))
-(setq doom-serif-font (font-spec :family "FiraMono NF" :weight 'light))
-#+end_src
 
 ** Line numbers
 I like to use both relative and absolute line numbers
@@ -217,9 +197,6 @@ Pointer dereferencing made (slightly) easier
       "development")
 #+end_src
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 * Organisation
 ** Calendar
 Configure and open the calendar
@@ -252,9 +229,3 @@ Package manager things like updating and installing packages
 
 ** Window managers
 ** Window manager utils
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes

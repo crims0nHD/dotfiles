@@ -1,0 +1,82 @@
+export ZSH="${HOME}/.oh-my-zsh"
+ZSH_THEME="gruvbox"
+SOLARIZED_THEME="dark"
+
+plugins=(git zsh-autosuggestions)
+
+# If vim is the terminal emulator
+if [[ -z ${VIMRUNTIME} ]] 
+then
+	plugins+=(vi-mode)
+fi
+
+ZSH_TMUX_AUTOSTART="true"
+ZSH_TMUX_UNICODE="true"
+
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=false
+VI_MODE_SET_CURSOR=true
+
+
+source $ZSH/oh-my-zsh.sh
+
+# export PAGER=nvimpager
+export EDITOR=nvim
+
+alias ls="ls --color"
+alias ll="ls -l"
+
+alias emacsc="emacsclient --no-wait -c"
+alias emacsct="emacsclient -nw -c"
+
+if [[ -z $(which emacs) ]]
+then
+	echo "No executable named emacs found. Please install emacs."
+else
+	if [[ -f /tmp/emacs1000 ]]
+	then
+	ESERVERS=$(ls /tmp/emacs1000)	
+	else
+	echo "Warning: Emacs server not started!"
+	fi
+fi
+
+alias doom="~/.emacsinstalls/doom/bin/doom"
+
+# Replacement for sudoedit based on doas
+doasedit(){
+	local filepath=${1:?No file specified}
+	local tmpstorage="/tmp/doasedit/${RANDOM}/"
+	local userwhoisediting=$USER
+	local originaluser=$(stat -c '%U' $filepath)
+	mkdir -p $tmpstorage
+	doas zsh -c "cp ${filepath} ${tmpstorage} && chown ${userwhoisediting} ${tmpstorage}/*"
+	for f in ${tmpstorage}/*
+	do
+		$EDITOR $f
+	done
+	doas zsh -c "chown ${originaluser} ${tmpstorage}/* && cp ${tmpstorage}/* ${filepath} && rm -r ${tmpstorage}"
+}
+
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+export TERM=vt100
+=======
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+# If running on void linux
+if [[ -z $(which xbps-install) ]]
+then
+	alias xi="xbps-install"
+	alias xq="xbps-query"
+	export LANG=C
+fi
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes

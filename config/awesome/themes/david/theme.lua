@@ -2,6 +2,7 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
+local gears = require("gears")
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
@@ -12,7 +13,7 @@ theme.font          = "sans 8"
 theme.bg_focus      = "#343deb"
 theme.bg_normal     = "#203791"
 theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
+theme.bg_minimize   = "#190226"
 
 theme.fg_focus      = "#ff00ee"
 theme.fg_normal     = "#91208a"
@@ -99,7 +100,7 @@ theme.icon_theme = nil
 
 -- Wibar
 -- --------
-theme.wibar_bg		= "#3c3836"
+theme.wibar_bg		= "#190226"
 theme.wibar_fg		= "#ebdbb2"
 theme.wibar_stretch	= true
 theme.wibar_opacity	= 0.6

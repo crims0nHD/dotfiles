@@ -37,7 +37,7 @@ tnoremap <Esc> <C-\><C-n>
 call plug#begin(stdpath('data') . '/plugged')
 
 " sick theme
-Plug 'morhetz/gruvbox'
+Plug 'Mofiqul/dracula.nvim'
 
 " faster grep
 Plug 'jremmen/vim-ripgrep'
@@ -73,7 +73,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
-let g:airline_theme='gruvbox'
+let g:airline_theme='base16_dracula'
 
 " async ?
 Plug 'prabirshrestha/async.vim'
@@ -99,10 +99,13 @@ endif
 Plug 'preservim/nerdtree'
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+" Zig language support
+Plug 'ziglang/zig.vim'
+
 call plug#end()
 
 " color thingi
-colorscheme gruvbox
+colorscheme dracula
 set background=dark
 
 if executable('rg')

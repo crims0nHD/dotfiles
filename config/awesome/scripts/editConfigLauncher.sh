@@ -1,5 +1,6 @@
 #!/bin/bash
-selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim config\nAutostart script\nShutdown script" | rofi -dmenu -p "Edit config: ")
+selected=$(echo -e "AwesomeWM config\nAwesomeWM theme\nRofi theme\nEdit config rofi script\nNvim
+config\nAutostart script\nShutdown script\nPicom script (compositor)" | rofi -dmenu -p "Edit config: ")
 sel_path=""
 
 if [[ "${selected}" == "AwesomeWM config" ]]
@@ -21,6 +22,10 @@ then
 elif [[ "${selected}" == "Nvim config" ]]
 then
 	sel_path="~/.config/nvim/init.vim"
+
+elif [[ "${selected}" == "Picom script (compositor)" ]]
+then
+	sel_path="~/.config/picom/picom.conf"
 
 elif [[ "${selected}" == "Autostart script" ]]
 then
