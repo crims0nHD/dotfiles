@@ -34,6 +34,9 @@ set backspace=indent,eol,start
 
 tnoremap <Esc> <C-\><C-n>
 
+" Clear the search highlighting
+nnoremap <Esc> :noh<CR>
+
 call plug#begin(stdpath('data') . '/plugged')
 
 " sick theme
@@ -101,6 +104,8 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Zig language support
 Plug 'ziglang/zig.vim'
+
+let mapleader="\<SPACE>"
 
 call plug#end()
 

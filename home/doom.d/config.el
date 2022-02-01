@@ -22,18 +22,10 @@
 (if loaded-theme-name 'doom-outrun-electric
   (progn
     (setq doom-theme 'doom-outrun-electric)
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-    (set-face-background 'hl-line "DimGrey")))
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+    (set-face-background 'hl-line "DimGrey")
     (add-hook 'treemacs-mode-hook
-              (lambda () (set-face-background 'hl-line "DimGrey")))
-    ))
+              (lambda () (set-face-background 'hl-line "DimGrey")))))
+    
 
 (setq doom-font (font-spec :family "FiraMono NF"
                            :size 16))
@@ -43,14 +35,6 @@
                                           :size 12))
 (setq doom-unicode-font (font-spec :family "FiraMono NF"))
 (setq doom-serif-font (font-spec :family "FiraMono NF" :weight 'light))
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-
 (setq display-line-numbers-type t)
 
 (map! :leader :desc "Line highlighting" "t h" #'hl-line-mode)
@@ -81,18 +65,7 @@
 (set-process-query-on-exit-flag proc nil))))
 (add-hook 'term-exec-hook 'set-no-process-query-on-exit) ;; ansi-term
 (add-hook 'vterm-mode-hook 'set-no-process-query-on-exit) ;; vterm
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 (xterm-mouse-mode 1)
-
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 (map! :map evil-normal-state-map :desc "Increase current font size" "C-M-+" #'doom/increase-font-size)
 (map! :map evil-normal-state-map :desc "Reset current font size" "C-M-=" #'doom/reset-font-size)
 (map! :map evil-normal-state-map :desc "Decrease current font size" "C-M--" #'doom/decrease-font-size)
@@ -128,9 +101,6 @@
 (setq eaf-installation-repo     "https://github.com/crims0nHD/emacs-application-framework.git")
 (setq eaf-installation-branch
       "development")
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 
@@ -145,9 +115,3 @@
   (comint-send-string
    (get-buffer-process (shell))
    "paru -Syu"))
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
