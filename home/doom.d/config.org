@@ -198,6 +198,18 @@ Pointer dereferencing made (slightly) easier
       "development")
 #+end_src
 
+** Zig language server
+Path to the language server
+Repo:https://github.com/zigtools/zls
+#+begin_src emacs-lisp :tangle yes
+(setq lsp-zig-zls-executable "~/toolchains/zls/zls")
+#+end_src
+
+** Shell script mode
+*** Void linux template
+#+begin_src emacs-lisp :tangle yes
+(add-to-list 'auto-mode-alist '("template" . shell-script-mode))
+#+end_src
 * Organisation
 ** Calendar
 Configure and open the calendar

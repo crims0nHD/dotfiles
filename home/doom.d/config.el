@@ -96,6 +96,10 @@
 (setq eaf-installation-branch
       "development")
 
+(setq lsp-zig-zls-executable "~/toolchains/zls/zls")
+
+(add-to-list 'auto-mode-alist '("template" . shell-script-mode))
+
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 
 (defun interop-flatpak-update ()
