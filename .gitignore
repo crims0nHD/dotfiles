@@ -21,4 +21,5 @@ home/doom.d/config.el
 home/doom.d/custom.el
 
 # Qtile
-*/__pycache__
+config/qtile/__pycache__
+config/qtile/*.py

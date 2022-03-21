@@ -27,3 +27,4 @@ Todo:
     * Arch
     * Debian
 * Add uninstall script
+* Document scripts

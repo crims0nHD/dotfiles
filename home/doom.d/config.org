@@ -101,6 +101,7 @@ I don't know why but to use ace-window across frames you need to set aw-scope to
 *** Locate string within project
 This makes use of helm (TODO: Alternatives to helm)
 #+begin_src emacs-lisp :tangle yes
+
 (map! :leader :desc "Find string in project" "p SPC" #'+helm:project-search)
 #+end_src
 

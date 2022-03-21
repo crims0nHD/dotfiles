@@ -2,9 +2,9 @@
 #+AUTHOR: David Hintringer
 #+EMAIL: gamedavid.dh@gmail.com
 #+LANGUAGE: en
-#+PROPERTY: header-args :exports code :file config.py
+#+PROPERTY: header-args :exports code :tangle config.py
 
-#+begin_src python :tangle yes
+#+begin_src python
 #Generated thorugh org-babel
 from typing import List  # noqa: F401
 
@@ -16,7 +16,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4" # Mod4 is the windows key
-terminal = guess_terminal()
+terminal = "kitty"
 
 keys = [
     # Switch between windows
@@ -87,16 +87,16 @@ for i in groups:
     ])
 
 layouts = [
-    layout.Columns(border_focus_stack=['#FF0000', '#00FF00'], border_width=2),
-    layout.Max(),
+    # layout.Columns(border_focus_stack=['#FF0000', '#00FF00'], border_width=2),
+    # layout.Max(),
     # layout.Stack(num_stacks=2),
-    # layout.Bsp(),
+    layout.Bsp(),
     # layout.Matrix(),
     # layout.MonadTall(),
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
-    layout.TreeTab(),
+    # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
@@ -109,10 +109,12 @@ widget_defaults = dict(
 extension_defaults = widget_defaults.copy()
 
 screens = []
-for i in range(3):
+for i in range(1):
     screens.extend([
         Screen(
-            bottom=bar.Bar(
+            wallpaper="~/Pictures/wallpaper.jpg",
+            wallpaper_mode="fill",
+            top=bar.Bar(
                 [
                     widget.CurrentLayout(),
                     widget.GroupBox(),
@@ -124,10 +126,9 @@ for i in range(3):
                         },
                         name_transform=lambda name: name.upper(),
                     ),
-                    widget.TextBox("Davids config", name="default"),
-                    widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                    widget.CPU(),
                     widget.Systray(),
-                    widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                    widget.Clock(format='%d.%m.%Y %a %H:%M'),
                     widget.QuickExit(),
                 ],
                 24,
@@ -151,7 +152,7 @@ bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.
-    *layout.Floating.default_float_rules,
+    ,*layout.Floating.default_float_rules,
     Match(wm_class='confirmreset'),  # gitk
     Match(wm_class='makebranch'),  # gitk
     Match(wm_class='maketag'),  # gitk
