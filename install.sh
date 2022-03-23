@@ -38,6 +38,21 @@ finaldone()
 # -------
 symlink()
 {
+    # Backup old file if already exists
+    backupname=$2
+    backuptodo=false
+    while [[ -f backupname ]]
+    do
+        backuptodo=true
+        backupname+=".bak"
+    done
+
+    if [[ backuptodo ]]
+    then
+        mv $2 backupname
+        echo "Backed up $backupname"
+    fi
+
     ln -s $1 $2
     echo "Symlinked $2"
 }
@@ -45,17 +60,6 @@ symlink()
 # Check dependencies
 # ------------------------
 echo "Installing dependencies..."
-
-# DEPS=(nvim curl emacs doas zsh pip cmake clang tmux python3)
-#for dep in "${DEPS[@]}"
-#do
-#    if [ -z $(which $dep) ]
-#    then
-#        error "Error: $dep missing... Install $dep"
-#    else
-#        echo "Found $dep"
-#    fi
-#done
 
 DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-devel python3-pip nodejs)
 #DEPS_ARCH_LINUX=()
