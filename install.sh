@@ -1,40 +1,9 @@
 #!/bin/bash
 
-# Definitions
-# ------------------------
-# Thanks to demure for the color snippet
-# Sauce: https://stackoverflow.com/questions/16843382/colored-shell-script-output-library
-RCol='\e[0m'    # Text Reset
+# Load colors
+source install.d/colors.sh
 
-# Regular           Bold                Underline           High Intensity      BoldHigh Intens     Background          High Intensity Backgrounds
-Bla='\e[0;30m';     BBla='\e[1;30m';    UBla='\e[4;30m';    IBla='\e[0;90m';    BIBla='\e[1;90m';   On_Bla='\e[40m';    On_IBla='\e[0;100m';
-Red='\e[0;31m';     BRed='\e[1;31m';    URed='\e[4;31m';    IRed='\e[0;91m';    BIRed='\e[1;91m';   On_Red='\e[41m';    On_IRed='\e[0;101m';
-Gre='\e[0;32m';     BGre='\e[1;32m';    UGre='\e[4;32m';    IGre='\e[0;92m';    BIGre='\e[1;92m';   On_Gre='\e[42m';    On_IGre='\e[0;102m';
-Yel='\e[0;33m';     BYel='\e[1;33m';    UYel='\e[4;33m';    IYel='\e[0;93m';    BIYel='\e[1;93m';   On_Yel='\e[43m';    On_IYel='\e[0;103m';
-Blu='\e[0;34m';     BBlu='\e[1;34m';    UBlu='\e[4;34m';    IBlu='\e[0;94m';    BIBlu='\e[1;94m';   On_Blu='\e[44m';    On_IBlu='\e[0;104m';
-Pur='\e[0;35m';     BPur='\e[1;35m';    UPur='\e[4;35m';    IPur='\e[0;95m';    BIPur='\e[1;95m';   On_Pur='\e[45m';    On_IPur='\e[0;105m';
-Cya='\e[0;36m';     BCya='\e[1;36m';    UCya='\e[4;36m';    ICya='\e[0;96m';    BICya='\e[1;96m';   On_Cya='\e[46m';    On_ICya='\e[0;106m';
-Whi='\e[0;37m';     BWhi='\e[1;37m';    UWhi='\e[4;37m';    IWhi='\e[0;97m';    BIWhi='\e[1;97m';   On_Whi='\e[47m';    On_IWhi='\e[0;107m';
-
-# Status
-# -------
-error()
-{
-    echo -e "${Red}$@${RCol}"
-    exit 1
-}
-
-donewith()
-{
-    echo -e "${Gre}$@${RCol}"
-}
-
-finaldone()
-{
-    echo -e "${UGre}$@${RCol}"
-}
-
-# Working routines 
+# Working routines
 # -------
 symlink()
 {
@@ -61,18 +30,22 @@ symlink()
 # ------------------------
 echo "Installing dependencies..."
 
-DEPS_VOID_LINUX=(neovim curl emacs-gtk3 zsh cmake clang tmux python3 python3-devel python3-pip nodejs)
-#DEPS_ARCH_LINUX=()
-#DEPS_DEBIAN_LINUX=()
-#DEPS_GENTOO_LINUX=()
+# Load dependency list
+source install.d/dependencies.sh
 
-echo "Detecting os..."
+echo "Detecting os and cpu architecture..."
 
 if [[ $(source /etc/os-release | echo $NAME) == "void" ]]
 then
    echo "Void Linux!"
    sudo xbps-install -Syu
    sudo xbps-install -Sy $DEPS_VOID_LINUX
+
+   if [[ -n $(uname -a | grep x86_64) ]]
+   then
+       echo "x86_64!"
+       sudo xbps-install -Sy $DEPS_VOID_LINUX_X86_64
+   fi
 fi
 
 donewith "Done installing dependencies"
@@ -144,7 +117,7 @@ echo "Creating $HOME/.emacsinstalls"
 mkdir -p $HOME/.emacsinstalls
 
 echo "Fetching and installing tools and utils"
-pushd ./scripts
+pushd ./install.d/scripts
 for f in ./get*.sh
 do
     echo "Executing $f"
@@ -157,7 +130,7 @@ echo "Installing plug for neovim"
 nvim +'PlugInstall --sync' +qa
 
 echo "Applying fixes and tweaks"
-pushd ./scripts
+pushd ./install.d/scripts
 for f in ./fix*.sh
 do
     echo "Executing $f"
