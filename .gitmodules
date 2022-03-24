@@ -4,3 +4,6 @@
 [submodule "apps/dwl"]
 	path = apps/dwl
 	url = https://github.com/crims0nHD/dwl
+[submodule "apps/eww"]
+	path = apps/eww
+	url = https://github.com/elkowar/eww
