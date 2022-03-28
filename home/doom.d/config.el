@@ -12,17 +12,25 @@
 
 (setenv "RUST_SRC_PATH" "/usr/lib/rustlib/rustc-src")
 
-(setq loaded-theme-name 'doom-outrun-electric)
+(setq doom-theme 'doom-dracula)
 
-(load-theme loaded-theme-name t)
-
-;; Apply custom modifications to loaded theme
-;; TODO
-(if loaded-theme-name 'doom-outrun-electric
+;; Outrun-electric
+(defun custom-theme-patch--outrun-electric ()
+    (set-face-background 'hl-line "DeepPink4"))
+(if doom-theme 'doom-outrun-electric
   (progn
-    (setq doom-theme 'doom-outrun-electric)
     (add-hook 'treemacs-mode-hook
-              (lambda () (set-face-background 'hl-line "DimGrey")))
+              #'custom-theme-patch--outrun-electric
+    )))
+
+;; Dracula
+(defun custom-theme-patch--dracula ()
+    (set-face-background 'hl-line "DeepPink4"))
+(if doom-theme 'doom-dracula
+  (progn
+    (add-hook 'treemacs-mode-hook
+              #'custom-theme-patch--dracula)
+    (message "Wtf")
     ))
 
 (setq doom-font (font-spec :family "FuraCode Nerd Font"))

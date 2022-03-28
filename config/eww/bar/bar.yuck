@@ -1,0 +1,17 @@
+()
+
+(defwidget bar-workspaces
+           (box ))
+
+(defwindow bar
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "7px"
+                               :width "90%"
+                               :height "25px"
+                               :anchor "top center")
+           :stacking "fg"
+           :reserve (struts :distance "45px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+  "servas")
