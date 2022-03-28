@@ -15,7 +15,7 @@
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#5B6268"))
  '(objed-cursor-color "#ff6c6b")
- '(package-selected-packages '(counsel gitconfig epc))
+ '(package-selected-packages '(w3m counsel gitconfig epc))
  '(pdf-view-midnight-colors (cons "#bbc2cf" "#000000"))
  '(rustic-ansi-faces
    ["#000000" "#ff6c6b" "#98be65" "#ECBE7B" "#0170bf" "#c678dd" "#46D9FF" "#bbc2cf"])

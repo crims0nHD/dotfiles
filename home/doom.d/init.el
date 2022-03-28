@@ -173,6 +173,7 @@
        (rss +org)        ; emacs as an RSS reader
        ;;twitter           ; twitter client https://twitter.com/vnought
        ;;(eaf +custom-path)            ; emacs application framework
+       ;;(w3m)
 
        :config
        literate
