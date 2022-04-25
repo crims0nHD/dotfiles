@@ -16,8 +16,8 @@ user_id = os.getuid()
 fifo_path = "/run/user/" + str(user_id) + "/eww-scripts/qtile-workspaces"
 
 while True:
-   os.remove(fifo_path)
-   os.mkfifo(fifo_path)
+   if not os.path.exists(fifo_path):
+      os.mkfifo(fifo_path)
    f = open(fifo_path, "w")
    while True:
       _, active_group = qtc.screen[0].items("group")
@@ -27,7 +27,7 @@ while True:
          for g in all_groups:
             f.write(str(g) + ",")
 
-         f.write(";;" + str(active_group))
+         f.write(";;" + str(active_group[0]))
 
          f.write("\n")
          f.flush()

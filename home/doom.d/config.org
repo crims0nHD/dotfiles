@@ -219,6 +219,10 @@ Repo:https://github.com/zigtools/zls
 #+begin_src emacs-lisp :tangle yes
 (add-to-list 'auto-mode-alist '("template" . shell-script-mode))
 #+end_src
+** Lisp mode
+#+begin_src emacs-lisp :tangle yes
+(add-to-list 'auto-mode-alist '("\\.yuck\\'" . lisp-mode))
+#+end_src
 * Organisation
 ** Calendar
 Configure and open the calendar

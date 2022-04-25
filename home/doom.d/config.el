@@ -108,6 +108,8 @@
 
 (add-to-list 'auto-mode-alist '("template" . shell-script-mode))
 
+(add-to-list 'auto-mode-alist '("\\.yuck\\'" . lisp-mode))
+
 (map! :leader :desc "Open Calendar" "o c" #'+calendar/open-calendar)
 
 (defun interop-flatpak-update ()
